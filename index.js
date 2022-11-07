@@ -1,5 +1,6 @@
-const express = require("express");
+const express = require('express');
 const cors = require("cors");
+const routes = require('./routes')
 
 // Prisma Client
 const app = express();
@@ -19,8 +20,8 @@ app.get("/", async (req, res) => {
   });
 });
 
-// // Routes API
-// routes(app);
+// Routes API
+routes(app);
 
 app.listen(port, () => {
   console.log(`Server is running on http://localhost:${port}`);

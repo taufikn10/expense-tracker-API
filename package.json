@@ -1,7 +1,7 @@
 {
   "name": "expense-tracker-api",
   "version": "1.0.0",
-  "description": "",
+  "description": "��#\u0000 \u0000e\u0000x\u0000p\u0000e\u0000n\u0000s\u0000e\u0000-\u0000t\u0000r\u0000a\u0000c\u0000k\u0000e\u0000r\u0000-\u0000A\u0000P\u0000I\u0000\r\u0000 \u0000",
   "main": "index.js",
   "scripts": {
     "dev": "nodemon index.js",
@@ -24,7 +24,10 @@
   },
   "dependencies": {
     "@prisma/client": "^4.5.0",
+    "bcrypt": "^5.1.0",
     "cors": "^2.8.5",
-    "express": "^4.18.2"
+    "express": "^4.18.2",
+    "joi": "^17.7.0",
+    "jsonwebtoken": "^8.5.1"
   }
 }

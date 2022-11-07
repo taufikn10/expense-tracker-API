@@ -1,11 +1,11 @@
 const prisma = require("../helpers/database");
 
 class _tracker {
-    getTracker = async (req) => {
+    getTracker = async (body) => {
         try {
           const getTracker = await prisma.tracker.findMany({
             where: {
-              user_id: req.user_id,
+              user_id: body.id,
             },
           });
           console.log(getTracker);

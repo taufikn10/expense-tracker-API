@@ -19,6 +19,7 @@ app.get("/", async (req, res) => {
   });
 });
 
+// testing
 // // Routes API
 // routes(app);
 

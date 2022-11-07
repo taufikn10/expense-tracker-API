@@ -70,6 +70,12 @@ class _expense {
       }).options({ abortEarly: false });
       const validation = schema.validate(body);
 
+      const balanceUser = await prisma.user.findUnique({
+        where : {
+          id : body.user_id
+        }
+      })
+
       if (validation.error) {
         const errorDetails = validation.error.details.map(
           (detail) => detail.message
@@ -81,6 +87,15 @@ class _expense {
           error: errorDetails.join(", "),
         };
       }
+
+      if(balanceUser.balance < body.expense){
+        return {
+          status: false,
+          code: 401,
+          message: "Saldo Tidak Cukup",
+        };
+      }
+
       const add = await prisma.expense.create({
         data: {
           user_id: body.user_id,
@@ -94,7 +109,7 @@ class _expense {
           id: body.user_id,
         },
         data: {
-          balance: body.expense,
+          balance: balanceUser.balance - body.expense,
         },
       });
       console.log("update", update);

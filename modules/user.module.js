@@ -12,6 +12,8 @@ class _user {
 
       return {
         status: true,
+        code: 200,
+        message: "list semua user",
         data: list,
       };
     } catch (error) {
@@ -68,6 +70,8 @@ class _user {
 
       return {
         status: true,
+        code: 201,
+        message: "user berhasil di update",
         data: update,
       };
     } catch (error) {
@@ -108,6 +112,8 @@ class _user {
 
       return {
         status: true,
+        code: 200,
+        message: "user berhasil di delete",
         data: del,
       };
     } catch (error) {

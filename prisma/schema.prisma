@@ -20,6 +20,7 @@ model User {
   updated_at DateTime  @default(now()) @updatedAt
   income     Income[]  @relation("income")
   expense    Expense[] @relation("expense")
+  tracker    Tracker[] @relation("tracker")
 
   @@map("tb_user")
 }
@@ -46,4 +47,16 @@ model Expense {
   updatedAt   DateTime @updatedAt
 
   @@map("tb_expense")
+}
+
+model Tracker {
+  id          Int      @id @unique @default(autoincrement())
+  user_id     Int
+  user        User     @relation("tracker", fields: [user_id], references: [id])
+  status      String
+  balance     Int      @default(0)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@map("tb_tracker")
 }

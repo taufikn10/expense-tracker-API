@@ -1,9 +1,9 @@
 // Mapping function dari module ke API
-const m$user = require('../modules/user.module')
-const { Router } = require('express')
-const response = require('../helpers/response')
+const m$user = require("../modules/user.module");
+const { Router } = require("express");
+const response = require("../helpers/response");
 
-const UserController = Router()
+const UserController = Router();
 
 /** 
 * Read User
@@ -12,26 +12,12 @@ const UserController = Router()
 * @param {string} password
 // http://localhost:8000/api/users
 */
-UserController.get('/', async(req, res) => {
-    const list = await m$user.listUser()
+UserController.get("/", async (req, res) => {
+  const list = await m$user.listUser();
 
-    // Response helper
-    response.sendResponse(res, list)
-})
-
-/** 
-* Create User
-* @param {string} name
-* @param {string} email
-* @param {string} password
-// http://localhost:8000/api/users
-*/
-UserController.post('/', async(req, res) => {
-    // Req body berisi data yg dikirim dari client
-    const add = await m$user.createUser(req.body)
-
-    response.sendResponse(res, add)
-})
+  // Response helper
+  response.sendResponse(res, list);
+});
 
 /** 
 * Update User
@@ -41,23 +27,23 @@ UserController.post('/', async(req, res) => {
 * @param {string} password
 // http://localhost:8000/api/users
 */
-UserController.put('/', async(req, res) => {
-    // Req body berisi data yg dikirim dari client
-    const update = await m$user.updateUser(req.body)
+UserController.put("/", async (req, res) => {
+  // Req body berisi data yg dikirim dari client
+  const update = await m$user.updateUser(req.body);
 
-    response.sendResponse(res, update)
-})
+  response.sendResponse(res, update);
+});
 
 /** 
 * Delete User
 * @param {number} id
 // http://localhost:8000/api/users/:id
 */
-UserController.delete('/:id', async(req, res) => {
-    // Req params
-    const del = await m$user.deleteUser(Number(req.params.id))
+UserController.delete("/:id", async (req, res) => {
+  // Req params
+  const del = await m$user.deleteUser(Number(req.params.id));
 
-    response.sendResponse(res, del)
-})
+  response.sendResponse(res, del);
+});
 
-module.exports = UserController
+module.exports = UserController;

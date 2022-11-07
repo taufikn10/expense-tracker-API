@@ -3,6 +3,7 @@ const AuthController = require('./controller/AuthController');
 const IncomeController = require('./controller/IncomeController');
 const ExpenseController = require('./controller/ExpenseController');
 const BalanceController = require("./controller/BalanceController");
+const TrackerController = require("./controller/trackerController");
 
 const _routes = [
   // http://localhost:8000/api/users
@@ -15,6 +16,8 @@ const _routes = [
   ['expense', ExpenseController],
     // http://localhost:8000/api/balance
   ['balance', BalanceController],
+    // http://localhost:8000/api/tracker
+  ['tracker', TrackerController],
 ];
 
 const routes = (app) => {

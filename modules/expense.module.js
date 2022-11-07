@@ -104,6 +104,14 @@ class _expense {
         },
       });
 
+      const addTracker = await prisma.tracker.create({
+        data: {
+          user_id: body.user_id,
+          status: 'Uang Keluar',
+          balance: body.expense,
+        },
+      });
+
       const update = await prisma.user.update({
         where: {
           id: body.user_id,

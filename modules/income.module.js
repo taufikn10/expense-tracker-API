@@ -87,11 +87,19 @@ class _income {
           error: errorDetails.join(", "),
         };
       }
-      const add = await prisma.income.create({
+       const add = await prisma.income.create({
         data: {
           user_id: body.user_id,
           description: body.description,
           income: body.income,
+        },
+      });
+
+      const addTracker = await prisma.tracker.create({
+        data: {
+          user_id: body.user_id,
+          status: 'Uang Masuk',
+          balance: body.income,
         },
       });
 

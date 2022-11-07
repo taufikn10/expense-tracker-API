@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/taufikn10/expense-tracker-API#readme",
   "devDependencies": {
+    "nodemon": "^2.0.20",
     "prisma": "^4.5.0"
   },
   "dependencies": {

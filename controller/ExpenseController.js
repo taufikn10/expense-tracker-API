@@ -38,7 +38,7 @@ ExpenseController.get('/sum', userSession, async (req, res) => {
  * Create Expense
  *
  * @param {String} description
- * @param {number} income
+ * @param {number} expense
  * http://localhost:8000/api/expense
  */
 
@@ -56,11 +56,11 @@ ExpenseController.post('/', userSession, async (req, res) => {
  * Update ExpenseList
  *
  * @param {String} description
- * @param {number} income
+ * @param {number} expense
  * http://localhost:8000/api/expense/:id
  */
 ExpenseController.put('/:id', userSession, async (req, res) => {
-  const updateexpense = await m$income.updateExpense(Number(req.params.id), req.body);
+  const updateexpense = await m$expense.updateExpense(Number(req.params.id), req.body);
 
   // response helper
   response.sendResponse(res, updateexpense);
@@ -72,7 +72,7 @@ ExpenseController.put('/:id', userSession, async (req, res) => {
  * http://localhost:8000/api/expense/:id
  */
 ExpenseController.delete('/:id', userSession, async (req, res) => {
-  const deleteExpense = await m$income.deleteExpense(Number(req.params.id));
+  const deleteExpense = await m$expense.deleteExpense(Number(req.params.id));
 
   // response helper
   response.sendResponse(res, deleteExpense);

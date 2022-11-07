@@ -70,6 +70,12 @@ class _income {
       }).options({ abortEarly: false });
       const validation = schema.validate(body);
 
+      const balanceUser = await prisma.user.findUnique({
+        where : {
+          id : body.user_id
+        }
+      })
+
       if (validation.error) {
         const errorDetails = validation.error.details.map(
           (detail) => detail.message
@@ -95,7 +101,7 @@ class _income {
           id: body.user_id,
         },
         data: {
-          balance: body.income,
+          balance: balanceUser.balance + body.income,
         },
       });
       console.log("update", update);

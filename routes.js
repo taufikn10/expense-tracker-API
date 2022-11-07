@@ -1,14 +1,17 @@
-const UserController = require("./controller/UserController");
-const AuthController = require("./controller/AuthController");
-const IncomeController = require("./controller/IncomeController");
+const UserController = require('./controller/UserController');
+const AuthController = require('./controller/AuthController');
+const IncomeController = require('./controller/IncomeController');
+const ExpenseController = require('./controller/ExpenseController');
 
 const _routes = [
   // http://localhost:8000/api/users
-  ["users", UserController],
+  ['users', UserController],
   // http://localhost:8000/api/login
-  ["", AuthController],
+  ['', AuthController],
   // http://localhost:8000/api/income
-  ["income", IncomeController],
+  ['income', IncomeController],
+  // http://localhost:8000/api/expense
+  ['expense', ExpenseController],
 ];
 
 const routes = (app) => {

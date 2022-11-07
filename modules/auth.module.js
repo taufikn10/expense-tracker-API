@@ -43,6 +43,7 @@ class _auth {
       return {
         status: true,
         code: 201, //sukses membuat create data
+        message: "user berhasil ditambahkan",
         data: add,
       };
     } catch (error) {
@@ -109,6 +110,8 @@ class _auth {
 
       return {
         status: true,
+        code: 200,
+        message: "berhasil login",
         data: {
           token,
         },

@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "nodemon index.js",
     "start": "node index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -20,8 +20,10 @@
   },
   "homepage": "https://github.com/taufikn10/expense-tracker-API#readme",
   "devDependencies": {
+    "jest": "^29.2.2",
     "nodemon": "^2.0.20",
-    "prisma": "^4.5.0"
+    "prisma": "^4.5.0",
+    "supertest": "^6.3.1"
   },
   "dependencies": {
     "@prisma/client": "^4.5.0",

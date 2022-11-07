@@ -15,23 +15,35 @@ model User {
   name       String    @db.VarChar(150)
   email      String    @db.VarChar(150)
   password   String    @db.VarChar(200)
-  balance    BigInt
+  balance    Int       @default(0)
   created_at DateTime  @default(now())
   updated_at DateTime  @default(now()) @updatedAt
-  Expense    Expense[] @relation("expense")
+  income     Income[]  @relation("income")
+  expense    Expense[] @relation("expense")
 
   @@map("tb_user")
 }
 
+model Income {
+  id          Int      @id @unique @default(autoincrement())
+  user_id     Int
+  user        User     @relation("income", fields: [user_id], references: [id])
+  description String
+  income      Int      @default(0)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@map("tb_income")
+}
+
 model Expense {
-  id          Int      @id @default(autoincrement())
+  id          Int      @id @unique @default(autoincrement())
   user_id     Int
   user        User     @relation("expense", fields: [user_id], references: [id])
-  description String   @db.Text
-  kredit      BigInt
-  debit       BigInt
-  created_at  DateTime @default(now())
-  updated_at  DateTime @default(now()) @updatedAt
+  description String
+  expense     Int      @default(0)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
 
   @@map("tb_expense")
 }
